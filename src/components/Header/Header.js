@@ -5,12 +5,12 @@ import { Volume2, VolumeX } from 'react-feather';
 import VisuallyHidden from '../VisuallyHidden';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import styles from './Header.module.css';
-import { VolumeContext } from '../../app/layout';
+import { SoundContext } from '../SoundEnabledProvider';
 function Header() {
   const id = React.useId();
 
   // TODO: Global state?
-  const { soundEnabled, setSoundEnabled } = React.useContext(VolumeContext);
+  const { soundEnabled, setSoundEnabled } = React.useContext(SoundContext);
 
   return (
     <header className={styles.wrapper}>
@@ -21,7 +21,7 @@ function Header() {
 
         <button
           onClick={() => {
-            setSoundEnabled((curr) => !curr)
+            setSoundEnabled(!soundEnabled)
           }}
         >
           {soundEnabled ? (

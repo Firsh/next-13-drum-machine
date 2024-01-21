@@ -1,19 +1,19 @@
-'use client';
+
 import React from 'react';
 
 import Header from '../components/Header';
 
 import './styles.css';
-export const VolumeContext = React.createContext();
+import SoundEnabledProvider from '../components/SoundEnabledProvider';
+
 function RootLayout({ children }) {
-  const [soundEnabled, setSoundEnabled] = React.useState(true);
   return (
     <html lang="en">
       <body>
-        <VolumeContext.Provider value={{ soundEnabled, setSoundEnabled }}>
+        <SoundEnabledProvider>
           <Header />
           {children}
-        </VolumeContext.Provider>
+        </SoundEnabledProvider>
         <footer>
           <img src="/ie-badge.gif" width={100} />
           <span>Thanks for visiting!</span>

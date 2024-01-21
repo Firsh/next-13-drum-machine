@@ -3,7 +3,7 @@ import React from 'react';
 import useSound from 'use-sound';
 
 import styles from './DrumMachine.module.css';
-
+import { VolumeContext } from '../../app/layout';
 const SOUND_SRC = '/909-drums.mp3';
 
 function DrumMachine() {
@@ -14,7 +14,7 @@ function DrumMachine() {
       snare: [666, 290],
       cowbell: [968, 200],
     },
-    soundEnabled: true,
+    soundEnabled: React.useContext(VolumeContext).soundEnabled,
   });
 
   return (

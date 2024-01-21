@@ -12,8 +12,7 @@ export default function SoundEnabledProvider({ children }) {
 export function useSoundEnabled() {
 	const context = React.useContext(SoundContext);
 	if (!context) {
-		throw Error("Can't consume context without a SoundEnabledProvider!")
-	} else {
-		return context;
+		throw new Error("Can't consume context without a SoundEnabledProvider!")
 	}
+	return context;
 }
